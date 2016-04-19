@@ -1,0 +1,9 @@
+#parse("header.vm")
+
+#if(!$uri.isEmpty() || $entity  || ${_browse})
+  #parse("page-deref.vm")
+#else
+  #parse("page-category.vm")
+#end
+
+#parse("footer.vm")
