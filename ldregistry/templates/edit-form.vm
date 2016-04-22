@@ -4,10 +4,8 @@
 ##    $isRegister  signals that the target is a register
 ##    $target = URL to be edited
 
-#parse("header.vm")
-#parse("navbar.vm")
+#parse("preamble.vm")
 
-<div class="modal-page container">
   <div class="row">
     <div class="col-md-offset-1 col-md-10 modal-page-panel">
 

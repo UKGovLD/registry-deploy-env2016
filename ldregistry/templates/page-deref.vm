@@ -1,7 +1,3 @@
-#set($nav="browse")
-#parse("navbar.vm")
-
-<div class="container">
 
 ## Fetch data for the URI or entity
 ## If an explicit $entity is requested then simply get it

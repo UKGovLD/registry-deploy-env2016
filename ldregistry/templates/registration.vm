@@ -3,10 +3,8 @@
 ##    $return the page to return to (or is that just referrer)
 ##    $register the relative URI of the target register
 
-#parse("header.vm")
-#parse("navbar.vm")
-  
-<div class="modal-page container">
+#parse("preamble.vm")
+
   <div class="row">
     <div class="col-md-10 col-md-offset-1 modal-page-panel">
     

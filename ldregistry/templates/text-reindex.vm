@@ -1,8 +1,6 @@
-#parse("header.vm")
 #set($nav="admin")
-#parse("navbar.vm")
+#parse("preamble.vm")
 
-    <div class="container">
     #if($subject.isAuthenticated() && $subject.hasRole("administrator"))
 
         <h2>Regenerate text index</h2>
@@ -19,7 +17,5 @@
     #else
         <h3>Sorry you must be logged in as an administrator to access this page</h3>
     #end
-
-    ## container will be closed by footer
 
 #parse("footer.vm")

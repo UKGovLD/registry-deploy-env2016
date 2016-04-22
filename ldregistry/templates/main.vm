@@ -1,9 +1,11 @@
-#parse("header.vm")
-
 #if(!$uri.isEmpty() || $entity  || ${_browse})
-  #parse("page-deref.vm")
+    #set($nav="browse")
+    #parse("preamble.vm")
+    #parse("page-deref.vm")
 #else
-  #parse("page-category.vm")
+    #set($nav="category")
+    #parse("preamble.vm")
+    #parse("page-category.vm")
 #end
 
 #parse("footer.vm")

@@ -1,0 +1,15 @@
+#parse("header.vm")
+#parse("navbar.vm")
+
+<div class='container' id="main">
+    <div class='o-top-colour-bar'></div>
+    <div class='o-service-phase'>
+        <span class='c-service-phase-beta-badge'>
+            beta
+        </span>
+        This is a trial service &ndash; your
+        <a href='mailto:TBD'>
+            feedback
+        </a>
+        will help us to improve it.
+    </div>

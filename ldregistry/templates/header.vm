@@ -1,12 +1,11 @@
 #set($root=$registry.rootPath)
 #set($uiroot="$root/ui")
+#set($assets="$uiroot/assets")
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="$uiroot/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,14 +15,19 @@
     <![endif]-->
 
     <title>#if($pageTitle) $pageTitle #else #if ($registry.configExtensions.registryName) $registry.configExtensions.registryName #else Registry #end #if($uri): $uri#end #end</title>
-    <link type="text/css" rel="stylesheet" href="$uiroot/css/ui.css" />
-    <link type="text/css" rel="stylesheet" href="$uiroot/css/jquery.dataTables.css" />
-    <link href="$uiroot/css/bootstrap-editable.css" rel="stylesheet"/>
-    #if($classView)<link rel="stylesheet" type="text/css" href="$uiroot/css/joint.min.css" />#end
+
+    <link href="$assets/css/ea-common.css" rel="stylesheet" />
+##    <link href="$assets/css/bootstrap.min.css" rel="stylesheet" />  ## Included in ea-common
+    <link href="$assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="$assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link type="text/css" rel="stylesheet" href="$assets/css/ui.css" />
+    <link type="text/css" rel="stylesheet" href="$assets/css/jquery.dataTables.min.css" />
+    <link href="$assets/css/bootstrap-editable.css" rel="stylesheet"/>
 
     #if($extraCSS)
       #foreach($file in $extraCSS.split(","))
-        <link type="text/css" rel="stylesheet" href="$uiroot/css/$file" />
+        <link type="text/css" rel="stylesheet" href="$assets/css/$file" />
       #end
     #end
 
@@ -32,9 +36,9 @@
         <link type="text/css" rel="stylesheet" href="$file" />
       #end
     #end
-##    <script type="text/javascript" src="$uiroot/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="$uiroot/js/jquery.min.js"></script>
-    <script type="text/javascript" src="$uiroot/js/jquery.form.js"></script>
+
+    <script type="text/javascript" src="$assets/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="$assets/js/jquery.form.js"></script>
   </head>
 
   <body>

@@ -1,8 +1,6 @@
-#parse("header.vm")
 #set($nav="admin")
-#parse("navbar.vm")
+#parse("preamble.vm")
 
-    <div class="container">
     #if($subject.isAuthenticated())
         #if($subject.hasRole("administrator"))
             <h3>Current administrators</h3>
@@ -43,5 +41,4 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-    ## container will be closed by footer
 #parse("footer.vm")

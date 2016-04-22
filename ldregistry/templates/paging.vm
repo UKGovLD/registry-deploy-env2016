@@ -3,12 +3,13 @@
 ##    $page the current pagenumber from query parameters
 ##    $qparam to any additional query parameters to pass in the paging calls, if not empty it should include '&'
 
-      #if(!$qparam)#set($qparam="")#end
-      #if($page)
-       #set($Integer = 0)
-       #set($pagenum = $Integer.parseInt($page))
+#if(!$qparam)#set($qparam="")#end
+<nav>
+    #if($page)
+        #set($Integer = 0)
+        #set($pagenum = $Integer.parseInt($page))
 
-          <ul class="pagination pagination-sm">
+        <ul class="pagination pagination-sm">
             #if($pagenum > 0)
               #set($prev=$pagenum - 1)
               <li><a href="?page=$prev$qparam">&laquo;</a></li>
@@ -34,3 +35,4 @@
             <li><a href="?page=1$qparam">&raquo;</a></li>
           </ul>
       #end
+</nav>

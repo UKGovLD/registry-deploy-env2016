@@ -1,20 +1,26 @@
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>      
-    </button>
-    <a class="navbar-brand" href="$root/">$registry.configExtensions.registryName</a>
-  </div>
+#if( $registry.isRedirectToHttpsOnLogin() )
+    #set($scheme = "https")
+#else
+    #set($scheme = "http")
+#end
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li #if($nav=="browse")class="active"#end><a href="$root/?_browse=true">Browse</a></li>
-      <li #if($nav=="about")class="active"#end><a href="$uiroot/about">About</a></li>
+#macro(advancedMenu)
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          #if($subject.isAuthenticated())
+            <li><a  href="#logout-dialog" role="button" data-toggle="modal">Logout</a></li>
+          #else
+            <li><a href="$scheme://$request.serverName/registry/ui/login?return=$scheme://$request.serverName/registry/$uri">Login</a></li>
+          #end
+          <li><a href="$uiroot/sparql-form">Sparql</a></li>
+          <li><a href="#">Check URI</a></li>
+        </ul>
+      </li>
+
+#end
+
+#macro(adminMenu)
       #if($subject.isAuthenticated())
         #set($user=$subject.principal)
         <li #if($nav=="admin")class="active"#end class="dropdown">
@@ -35,44 +41,65 @@
             <li><a  href="#logout-dialog" role="button" data-toggle="modal">Logout</a></li>
           </ul>
         </li>
-##        <li #if($nav=="admin")class="active"#end><a href="$uiroot/admin">Admin</a></li>
       #end
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          #if($subject.isAuthenticated())
-            <li><a  href="#logout-dialog" role="button" data-toggle="modal">Logout</a></li>
-          #else
-            <li><a href="$uiroot/login?return=/$uri">Login</a></li>
-          #end
-          <li><a href="$uiroot/sparql-form">Sparql</a></li>
-          <li><a href="#">Check URI</a></li>
-        </ul>
-      </li>
-    </ul>
+#end
 
-    <form action="$uiroot/text-search" method="get" class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="search" class="form-control search-query" placeholder="Search" #if($query)value="$lib.escapeHtml($query)"#end name="query"/>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+<nav class='navbar o-navbar-ea navbar-static-top' role='navigation'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm-3'>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class='navbar-header'>
+                    <button class='navbar-toggle collapsed' data-target='#navbar-ea-menu' data-toggle='collapse' type='button'>
+                        <span class='sr-only'>Toggle navigation</span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                    </button>
+                    <a class="navbar-brand" href="$root/">$registry.configExtensions.registryName</a>
+                </div>
+            </div>
 
-    #if($subject.isAuthenticated())
-      #set($user=$subject.principal)
-      <ul class="nav pull-right">
-        <li>
-          <span>
-            <span class="nav-text">$user.name</span><span class="glyphicon glyphicon-user"></span>
-            <a class="popinfo" data-trigger="hover" data-placement="left"   data-content="Logout"
-                        href="#logout-dialog" data-target="#logout-dialog" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove-circle"></span></a>
-          </span>
-        </li>
-      </ul>
-    #end
+            <div class="col-sm-9">
+                <div class='collapse navbar-collapse' id='navbar-ea-menu'>
+                    <ul class='nav navbar-nav navbar-left'>
+                        <li #if($nav=="browse")class="active"#end><a href="$root/?_browse=true">Browse</a></li>
+                        <li #if($nav=="about")class="active"#end><a href="$uiroot/about">About</a></li>
+                        #adminMenu
+                        #advancedMenu
+                    </ul>
 
-  </div><!-- /.navbar-collapse -->
+                    <form action="$uiroot/text-search" method="get" class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="search" class="form-control search-query" placeholder="Search" #if($query)value="$lib.escapeHtml($query)"#end name="query"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+
+                    #if($subject.isAuthenticated())
+                        #set($user=$subject.principal)
+                        <ul class="nav pull-right">
+                            <li>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="nav-text">$user.name</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="#logout-dialog" data-target="#logout-dialog" role="button" data-toggle="modal">logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    #end
+
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
+
 
 #if($subject.isAuthenticated())
     <div id="logout-dialog" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">

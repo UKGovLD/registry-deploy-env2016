@@ -1,7 +1,3 @@
-#set($nav="category")
-#parse("navbar.vm")
-
-<div class="container">
 
   <h1>List all registers</h1>
   #set($base="${root}/")
