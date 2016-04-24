@@ -103,18 +103,18 @@
   #else
     #if (($register.getPropertyValue("ui:hierarchyRootType") || $register.getPropertyValue("ui:hierarchyRootProperty")) && $register.getPropertyValue("ui:hierarchyChildProperty"))
       #if(!$listView)
-        <h2>Contents (tree view) <a href="$request.requestURL?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a flat list"><span class="glyphicon glyphicon-list"></span></a></h2>
+        <h2>Contents (tree view) <a href="$root/$uri?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a flat list"><span class="glyphicon glyphicon-list"></span></a></h2>
         #parse("register-tree.vm")
       #else
-        <h2>Contents (list view) <a href="$request.requestURL?treeView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a hierarchy"><span class="glyphicon glyphicon-tree-conifer"></span></a></h2>
+        <h2>Contents (list view) <a href="$root/$uri?treeView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a hierarchy"><span class="glyphicon glyphicon-tree-conifer"></span></a></h2>
         #parse("register-list.vm")
       #end
     #elseif ($registry.configExtensions.showClassDiagrams && $register.hasResourceValue("rdf:type", "owl:Ontology"))
       #if($classView)
-        <h2>Contents <a href="$request.requestURL?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as list">Show as list</a></h2>
+        <h2>Contents <a href="$root/$uri?listView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as list">Show as list</a></h2>
         #parse("register-class-diagram.vm")
       #else
-        <h2>Contents <a href="$request.requestURL?classView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a class diagram">Show as class diagram</a></h2>
+        <h2>Contents <a href="$root/$uri?classView=true" class="btn btn-default btn-sm" role="button" data-trigger="hover" data-placement="top" data-content="View contents as a class diagram">Show as class diagram</a></h2>
         #parse("register-list.vm")
       #end
     #else

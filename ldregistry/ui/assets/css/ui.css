@@ -20,14 +20,17 @@ body {
 
 .navbar-nav .dropdown-menu li a {
     background-color: white !important;
+    color: black;
+    border-bottom: none !important;
     margin-left: 10px;
+    margin-bottom: 3px;
 }
 
 .navbar-nav .dropdown-menu li a:hover {
     background-color: gray !important;
 }
 
-.o-navbar-ea li.active a, .o-navbar-ea li.active .c-navbar-menu-item {
+.navbar-nav li.active a {
     border-bottom: 3px solid #005ea5;
 }
 
