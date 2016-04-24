@@ -27,8 +27,17 @@ body {
     background-color: gray !important;
 }
 
+.o-navbar-ea li.active a, .o-navbar-ea li.active .c-navbar-menu-item {
+    border-bottom: 3px solid #005ea5;
+}
+
 footer {
     margin-top: 15px;
+    border-top: 15px solid #005ea5;
+}
+
+.o-top-colour-bar {
+    background-color: #005ea5;
 }
 
 /* Registry L&F */
