@@ -54,18 +54,21 @@
       #end
 #end
 
+
 ## Display a description for a resource if one is available, otherwise show the default (which can be empty)
 #macro(description $r $default)
   #if($r.getPropertyValue("dct:description"))
     $r.getLocalizedValue("dct:description")
+  #elseif($r.getPropertyValue("skos:definition"))
+    $r.getLocalizedValue("skos:definition")
+  #elseif($r.getPropertyValue("rdfs:comment"))
+    $r.getLocalizedValue("rdfs:comment")
   #else$default#end
 #end
 
 ## Display a truncated description for a resource if one is available, otherwise show the default (which can be empty)
 #macro(tdescription $r $default $limit)
-  #if($r.getPropertyValue("dct:description"))
-    $lib.reg.stripHtml($r.getLocalizedValue("dct:description"), $limit)
-  #else$default#end
+    $lib.reg.stripHtml("#description($r,$default)", $limit)
 #end
 
 ## Inject a plain link for a resource - no encoding or mapping to the host
