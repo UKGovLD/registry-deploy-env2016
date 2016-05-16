@@ -1,3 +1,5 @@
+#set($root=$registry.rootPath)
+
 <table class="table table-bordered table-condensed">
   <tbody>
   #foreach($user in $users)
