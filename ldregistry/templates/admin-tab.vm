@@ -166,14 +166,14 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h3>Patch the register (adding/changing items)</h3>
             </div>
-            <div id="annotate-dialog-status-body" class="modal-body">
+            <div id="patch-dialog-status-body" class="modal-body">
               #set($target="$root/$uri.replace('/_','/')")
-              <form id="annotate-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
+              <form class="ajax-form" id="patch-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
                 <div class="form-group">
-                  <label for="chooser">
+                  <label for="file">
                     Choose patch file to upload:
                   </label>
-                  <input id="chooser" class="form-control" type="file" name="file" multiple />
+                  <input id="patch-chooser" class="form-control" type="file" name="file" multiple />
                 </div>
                 <input type="hidden" name="action" value="edit" />
                 <button class="btn form-submit">patch</button>
@@ -196,14 +196,14 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h3>Import a replacement register tree</h3>
             </div>
-            <div id="annotate-dialog-status-body" class="modal-body">
+            <div id="import-dialog-status-body" class="modal-body">
               #set($target="$root/$uri.replace('/_','/')")
-              <form id="annotate-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
+              <form class="ajax-form" id="import-form" action="$target" method="post" enctype="multipart/form-data" data-action="$target">
                 <div class="form-group">
-                  <label for="chooser">
+                  <label for="file">
                     Choose import file to upload:
                   </label>
-                  <input id="chooser" class="form-control" type="file" name="file" multiple />
+                  <input id="import-chooser" class="form-control" type="file" name="file" multiple />
                 </div>
                 <input type="hidden" name="action" value="import" />
                 <button class="btn form-submit">import</button>
