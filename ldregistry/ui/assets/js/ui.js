@@ -9,7 +9,8 @@ $(function() {
     $('.datatable').dataTable( {
       "language": {
         "search": "Filter entries:"
-      }
+      },
+      "lengthMenu": [ [20, 50, 100, -1], [20, 50, 100, "All"] ]
     } );
     
     // Query forms run a target query and load the resulting HTML into a data-result element
