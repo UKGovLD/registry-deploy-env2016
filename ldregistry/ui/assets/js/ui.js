@@ -6,7 +6,11 @@ $(function() {
     $(".rhs").appendTo("#rhs");
 
     // Enable datatable processing
-    $('.datatable').dataTable();
+    $('.datatable').dataTable( {
+      "language": {
+        "search": "Filter entries:"
+      }
+    } );
     
     // Query forms run a target query and load the resulting HTML into a data-result element
     var processQueryForms = function() {
