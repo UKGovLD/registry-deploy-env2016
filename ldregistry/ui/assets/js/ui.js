@@ -215,7 +215,7 @@ $(function() {
             return "<" + val + ">";
         } if (val.match(/^[+-]?[0-9]*(\.[0-9]+)?$/)) {
             return val;     // number
-        } if (val.match(/^[a-zA-Z][\w\d\.]*:[\w\d\.:]*$/)) {
+        } if (val.match(/^[a-zA-Z][\w\d\.-]*:[\w\d\.:]*$/)) {
             return val;     // prefixed
         } else {
             return '"""' + val + '"""';
