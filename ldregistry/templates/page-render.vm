@@ -75,14 +75,14 @@
         <li><a href="#allmetadataTab" data-toggle="tab">Reg metadata</a></li>
         ## #if($register || $template)  ## Suppressed to reduce height of pill stack
         #if($register)
-          <li><a href="#propertiesTab">All properties</img> </a></li>
+          <li><a href="#propertiesTab">All properties</a></li>
         #end
         <li><a href="#downloadsTab">Download</a></li>
         #if(!$register)
           <li><a href="#historyTab" data-toggle="tab">History</a></li>
         #end
         #if($subject.isAuthenticated())
-          <li><a href="#adminTab">Admin</span></a></li>
+          <li><a href="#adminTab">Admin</a></li>
         #end
         <li id="close-pillstack" class="hide"><a href="#collapse-tab" data-toggle="tab"><span class="glyphicon glyphicon-remove-circle"></span></a></li>
     </ul>

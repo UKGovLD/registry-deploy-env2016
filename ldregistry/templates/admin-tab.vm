@@ -32,6 +32,7 @@
 
 ## End of macro
 
+  #set( $foundAction = false )
 
   ## Set status for the entity itself
   #if($lib.reg.isPermitted("StatusUpdate", $uri))
@@ -72,14 +73,10 @@
      <p>
       #set($foundAction=true)
     #end
-    <a href="$uiroot/registration?register=#linkhref($register)&return=$root/$uri" role="button" class="btn btn-default btn-sm" data-toggle="modal">Add registration <span class="glyphicon glyphicon-plus-sign"></a>
+    <a href="$uiroot/registration?register=#linkhref($register)&return=$root/$uri" role="button" class="btn btn-default btn-sm" data-toggle="modal">Add registration <span class="glyphicon glyphicon-plus-sign"></span></a>
 
     <a href="#patch-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">Patch</a>
     #set($patchDialog=true)
-  #end
-
-  #if($foundAction)
-    </p>
   #end
 
   ## Editing entity, metadata and annotations
@@ -87,6 +84,8 @@
     #if(!$foundAction)
       <h3 class="text-center">Actions</h3>
       #set($foundAction=true)
+    #else
+      </p>
     #end
     <p>
 ##    #if(!$register)
@@ -108,7 +107,7 @@
   ## Real delete
   #if($item && $lib.reg.isPermitted("RealDelete", $uri) && $uri != "_")
       <form class="form-inline" action="$root/$uri?real_delete" method="post">
-        <input type="submit" value="Delete" class="btn btn-danger btn-sm"></input>
+        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
       </form>
   #end
 
@@ -249,7 +248,7 @@
             <form class="form-inline" action="$root/system/security/ungrant" method="post">
               <input type="hidden" name="user" value="$user.openid" />
               <input type="hidden" name="path" value="$path" />
-              <input type="submit" value="remove" class="btn btn-default btn-sm"></input>
+              <input type="submit" value="remove" class="btn btn-default btn-sm">
             </form>
           </td>
         </tr>

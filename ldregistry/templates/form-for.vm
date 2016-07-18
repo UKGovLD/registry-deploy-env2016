@@ -17,12 +17,12 @@
       <label class="control-label popinfo" for="$notation"  data-trigger="hover" data-placement="bottom"
                  data-content="$field.getPropertyValue("ui:tooltip").lexicalForm">$field.name</label>
         #if($field.hasResourceValue("ui:fieldType", "ui:labelField"))
-          <input class="form-control" type="text" name="$notation" id="$notation" placeholder="$field.name"></input>
+          <input class="form-control" type="text" name="$notation" id="$notation" placeholder="$field.name">
         #elseif($field.hasResourceValue("ui:fieldType", "ui:textField"))
           <textarea class="form-control" rows="2" name="$notation" id="$notation" placeholder="$field.name"></textarea>
         #elseif($field.hasResourceValue("ui:fieldType", "ui:anyURIField"))
           <input class="input-large popinfo form-control" type="text" name="$notation" id="$notation" placeholder="$field.name"
-            data-trigger="hover" data-placement="bottom" data-content="URI, can use prefixes, separate multiple values with ','."></input>
+            data-trigger="hover" data-placement="bottom" data-content="URI, can use prefixes, separate multiple values with ','.">
         #end
     </div>
 
