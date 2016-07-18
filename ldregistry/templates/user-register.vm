@@ -21,7 +21,7 @@
               <div class="row">
                 <form class="form-horizontal form-validated" role="form"  action="$root/system/security/pwregisterOther" method="post" autocomplete="off">
                   <div class="form-group">
-                    <label for="userid2" class="col-md-offset-1 col-md-2 control-label">User id</label>
+                    <label for="userid2" class="col-md-offset-1 col-md-2 control-label">Username</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="userid2" name="userid" placeholder="User id e.g. email address" required>
                     </div>

@@ -22,8 +22,8 @@
         <table class="table table-striped table-bordered datatable">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Id</th>
+                    <th>Display Name</th>
+                    <th>Username</th>
                     <th>Administrator?</th>
                     <th>Actions</th>
                     <th>Remove</th>
