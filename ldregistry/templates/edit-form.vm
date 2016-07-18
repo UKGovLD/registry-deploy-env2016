@@ -97,13 +97,10 @@
     </div>
   </div>
 
-</div>
-
 <div class="modal-backdrop in"></div>
-
-#parse("footer.vm")
 
 <div class="modal-page-head">
     <h3>Edit: $target</h3>
 </div>
 
+#parse("footer.vm")
