@@ -19,6 +19,8 @@
                 #end
               </tbody>
             </table>
+        #else
+            <p>No explicit permissions granted</p>
         #end
 
     #else
