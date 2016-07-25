@@ -5,9 +5,9 @@
       #foreach($member in $members)
         #set($itemL=$member.connectedNodes("^reg:entity/^reg:definition"))
         #if(!$itemL.isEmpty())
-          #set($item = $itemL[0])
-          #if($item.hasResourceValue("reg:status", "reg:statusReserved"))
-            #set($reserved=$lib.reg.addReserved($reserved, $item.getPropertyValue("reg:notation").asRDFNode()))
+          #set($item0 = $itemL[0])
+          #if($item0.hasResourceValue("reg:status", "reg:statusReserved"))
+            #set($reserved=$lib.reg.addReserved($reserved, $item0.getPropertyValue("reg:notation").asRDFNode()))
           #end
         #end
       #end

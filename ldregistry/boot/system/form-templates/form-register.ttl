@@ -69,7 +69,7 @@
             ui:fieldType ui:anyURIField]
       [a ui:FormField; rdfs:label "licence"; skos:notation "licence";
             ui:tooltip "Licence that applies to the register contents"@en;
-            ui:property dct:licence;
+            ui:property dct:license;
             ui:fieldType ui:anyURIField]
     );
     .
