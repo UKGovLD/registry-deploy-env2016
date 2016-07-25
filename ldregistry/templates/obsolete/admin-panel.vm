@@ -1,4 +1,4 @@
-## Actions for an item
+## Generate the controls for the main admin actions on an item
 
 ## Macro to generate one of the admin dialogs
 
@@ -29,42 +29,30 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->  
 #end
+##    of macro
 
-## End of macro
+    <h3 class="text-center">Actions</h3>
+
+    ## Status setting
+
+    #if($lib.reg.isPermitted("StatusUpdate", $uri))
+        #startActionSection( "Status" )
+        #action( "set-status" )
+        #if( $register )
+            #action( "set-status-content" )
+        #end
+        #endActionSection()
+    #end
+
+    ## Register or patch
+    #if($register && $lib.reg.isPermitted("Register", $uri)) 
+        #startActionSection( "Register" )
+        #action( "register" )
+        #endActionSection()
+    #end
 
   #set( $foundAction = false )
 
-  ## Set status for the entity itself
-  #if($lib.reg.isPermitted("StatusUpdate", $uri))
-    #if(!$foundAction)
-      <h3 class="text-center">Actions</h3>
-      <p>
-      #set($foundAction=true)
-      #set($itemStatusDialog=true)
-    #end
-    <a href="#status-dialog" role="button" class="btn btn-default btn-sm" data-toggle="modal">Set status</a>
-
-    ## Set status for the contents of a register
-    #if ($register)
-      ## Find a sample member
-      #set($items = $model.querySelectW("SELECT * where {?page a ldp:Page; api:items ?items.}"))
-      #if (!$items.isEmpty())
-        #set($members=$items.get(0).items.asList())
-        #set($hasmembers=!$members.isEmpty())
-      #else
-        #set($hasmembers=false)
-      #end
-      #if($hasmembers)
-        #set($ml=$members[0].connectedNodes("^reg:entity/^reg:definition"))
-        #if(!$ml.isEmpty())
-          #set($sample=$ml[0])
-          <a href="#status-dialog2" role="button" class="btn btn-default btn-sm" data-toggle="modal">Set contents status</a>
-        #else
-          #set($sample=false)
-        #end
-      #end
-    #end
-  #end
 
   ## Add a new item to a register
   #if($register && $lib.reg.isPermitted("Register", $uri))
@@ -299,8 +287,8 @@
     #end
 
  #end
-
-
+  
+    #renderDialogs()
 
 <script type="text/javascript">
     $(function() {

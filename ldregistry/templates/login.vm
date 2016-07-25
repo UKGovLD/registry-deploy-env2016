@@ -2,7 +2,8 @@
 ##    $return the page to return to (or is that just referrer)
 
 #set($pageTitle="Registry login")
-#parse("preamble.vm")
+
+#parse("structure/_preamble.vm")
 
 #set($provider=false)
 #foreach($cookie in $request.cookies)
@@ -11,6 +12,7 @@
   #end
 #end
 
+<div class="modal-page container">
   <div class="row">
     <div class="col-md-12 modal-page-panel">
       <div class="modal-page-head">
@@ -22,7 +24,7 @@
 
         <div class="row space-above">
         
-          <div class="col-md-offset-2 col-md-5 blob pale-blue">
+          <div class="#if($registry.configExtensions.passwordLoginOnly) col-md-offset-2 #end col-md-5 blob-password">
             <div class="blob-inner">
               <div class="row">
                 <div class="col-md-12">
@@ -53,9 +55,76 @@
                 </form>
               </div>
               #end
+              #if( ! $registry.configExtensions.passwordLoginOnly )
+              <div class="row space-above">
+                <div class="col-md-12">
+                  <form class="form-horizontal" action="$root/system/security/loginoa" method="post">
+                    #if(!$registry.configExtensions.suppressPasswordLogin)
+                    <p>Or login via a registered Google G+ account</p>
+                    #end
+                    <div class="input-group">
+                      <input type="hidden" name="provider" value="https://accounts.google.com/o/oauth2/auth" />
+                      <input type="hidden" name="return" value="$return" />
+                      <input type="submit" value="login via Google" class="btn btn-primary" type="button" />
+                    </div><!-- /input-group -->
+                  </form>
+                </div>
+              </div>
+              #end
             </div>
           </div>
         
+          #if( ! $registry.configExtensions.passwordLoginOnly )
+          <div class="col-md-5 col-md-offset-1 blob-oauth">
+            <div class="blob-inner">
+              <h2>Register as a new user</h2>
+              #if( ! $registry.configExtensions.suppressPasswordLogin)
+              <div class="row">
+                <form class="form-horizontal" role="form"  action="$root/system/security/pwregister" method="post">
+                  <div class="form-group">
+                    <label for="userid2" class="col-md-offset-1 col-md-2 control-label">Username</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="userid2" name="userid" placeholder="Username e.g. email address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="name2" class="col-md-offset-1 col-md-2 control-label">Name</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="name2" name="name" placeholder="Display name or nickname">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password2" class="col-md-offset-1 col-md-2 control-label">Password</label>
+                    <div class="col-md-8">
+                      <input type="password" class="form-control" id="password2" name="password" placeholder="Password">
+                    </div>
+                  </div>
+                  <input type="hidden" name="return" value="$return" />
+                  <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                      <button type="submit" class="btn btn-default">Create account</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              #end
+              <div class="row space-above">
+                <div class="col-md-12">
+                  <form class="form-horizontal" action="$root/system/security/registeroa" method="post">
+                    #if(!$registry.configExtensions.suppressPasswordLogin)
+                    <p>Or authorize via a Google G+ account</p>
+                    #end
+                    <div class="input-group">
+                      <input type="hidden" name="provider" value="https://accounts.google.com/o/oauth2/auth" />
+                      <input type="hidden" name="return" value="$return" />
+                      <input type="submit" value="Create account via Google" class="btn btn-primary" type="button" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          #end
         </div>
         
         <div class="row space-above">
@@ -64,12 +133,13 @@
              preferred OpenID provider (if any) and to record the ID you are logged in with for this session.</p>
           </div>
         </div>
+        
 
       </div>
       <div class="modal-page-footer">
         <div class="row">
           <div class="col-md-offset-10 col-md-1">
-            <a href="#if($return)$root$return#else$root#end" class="btn">Close</a>
+            <a href="#if($return)$return#else$root#end" class="btn">Close</a>
           </div>
         </div>
       </div>
@@ -78,5 +148,4 @@
   
   <div class="modal-backdrop in"></div>
 
-#parse("footer.vm")
-
+#parse("structure/_footer.vm")

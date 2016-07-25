@@ -1,7 +1,7 @@
 #set($pageTitle="Registry sparql query")
 #set($extraCSS="qonsole.css,codemirror.css")
 #set($nav="sparql")
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
     <!-- This link provides CORS support in IE8+ -->
     <!--[if lt IE 10]>
@@ -124,4 +124,4 @@
     </div><!-- /.modal -->
 
 #set($extraJS="qlib/sprintf-0.7-beta1.js,qlib/underscore.js,qlib/codemirror.js,qlib/foldcode.js,qlib/foldgutter.js,qlib/brace-fold.js,qlib/xml-fold.js,qlib/comment-fold.js,qlib/javascript.js,qlib/xml.js,qlib/sparql.js,app/qonsole.js,app/qconfig.js")
-#parse("footer.vm")
+#parse("structure/_footer.vm")

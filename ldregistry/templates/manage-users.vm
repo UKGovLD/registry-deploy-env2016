@@ -1,5 +1,5 @@
 #set($nav="admin")
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
 #macro(administatorForm $user $add)
     <form class="form-inline" action="$root/system/security/setrole" method="post">
@@ -86,4 +86,4 @@
         <h3>Sorry you must be logged in as an administrator to access this page.</h3>
     #end
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")

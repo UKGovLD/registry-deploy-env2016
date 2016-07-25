@@ -3,10 +3,10 @@
     #set($nav="root")
   #end
 
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
         <h2>Sorry</h2>
 
         <p>$lib.escapeHtml($message)</p>
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")

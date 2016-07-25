@@ -1,5 +1,5 @@
 #set($nav="about")
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
     <div class="jumbotron">
       <div class="container">
         <h1>$registry.configExtensions.registryName</h1>
@@ -10,4 +10,4 @@
 
     <p>It is based on the UKGovLD <a href="https://github.com/UKGovLD/registry-core/wiki"> design</a> for a Linked Data registry.</p>
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")

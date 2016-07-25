@@ -1,5 +1,47 @@
 ## Global macros
 
+##
+## Support for actions UI elements
+##
+
+#macro( startActionSection $section )
+    #set( $actionSectionState = { "section" : "$section", "started" : false } )
+#end
+
+#macro( action $action )
+    #if( $actionSectionState.section && ! $actionSectionState.started )
+        #set( $ignore = $actionSectionState.put("started", true) )
+        <div class="row action-section">
+            <div class=" col-md-offset-1 col-md-2">
+                <strong>$actionSectionState.section</strong>:
+            </div>
+            <div class="col-md-9">
+    #end
+    #parse( "actions/_${action}.vm" )
+#end
+
+#macro( endActionSection )
+    #if( $actionSectionState.section && $actionSectionState.started )
+            </div>
+        </div>
+    #end
+#end
+
+#macro( incdialog $name )
+   #if( ! $dialogs ) #set( $dialogs = {} ) #end
+   #set( $ignore = $dialogs.put( $name, true) )
+#end
+
+#macro( renderDialogs )
+   #foreach( $dialog in $dialogs.keySet() )
+       #parse( "actions/_${dialog}-dialog.vm" )
+   #end
+#end
+
+##
+## General render macros
+##
+
 ## Show status value as a suitably coloured blob
 #macro(showstatus $status)
   <span class="label label-$lib.reg.asStatus($status).presentation">$lib.reg.asStatus($status)</span>

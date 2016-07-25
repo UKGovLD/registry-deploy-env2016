@@ -47,5 +47,13 @@
             ui:property rdf:type;
             ui:multivalued true;
             ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "hierarchy child property"; skos:notation "hChild";
+            ui:tooltip "Property used for child links in tree view"@en;
+            ui:property ui:hierarchyChildProperty;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "hierarchy root property"; skos:notation "hRoot";
+            ui:tooltip "Property used to find root entries in tree view"@en;
+            ui:property ui:hierarchyRootProperty;
+            ui:fieldType ui:anyURIField]
     );
     .

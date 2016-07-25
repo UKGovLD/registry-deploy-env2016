@@ -50,17 +50,18 @@ $(function() {
     $('.action-tab').bind('show.bs.tab', function(e) {
         var pattern=/#.+/gi
         var contentID = e.target.toString().match(pattern)[0];
-        var action = $(contentID).attr('data-action');
-        var uri = $(contentID).attr('data-uri');
-        var uiroot = $(contentID).attr('data-uiroot');
+        var tab = $(contentID);
+        var action = tab.attr('data-action');
+        var uri = tab.attr('data-uri');
+        var uiroot = tab.attr('data-uiroot');
         if (action) {
           //var url = '$uiroot/' + action +'?uri=$lib.pathEncode($uri)&requestor=$requestor';
           var url = uiroot + '/' + action + '?uri=' + uri;
-          var args = $(contentID).attr('data-args');
+          var args = tab.attr('data-args');
           if (args) {
              url = url + "&" + args;
           }
-          $(contentID).load(url, function(){
+          tab.find(".tab-pane-inner").load(url, function(){
              $('.action-tab').tab(); //reinitialize tabs
              $('.datatable').dataTable();
              processQueryForms();
@@ -107,7 +108,7 @@ $(function() {
         }
     });
 
-    // Hierarchicall views
+    // Hierarchical views
     var hlistHandler = function(event) {
         var button = $(event.target).closest("a");
         var parent = button.closest("div");

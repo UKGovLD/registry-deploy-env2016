@@ -1,49 +1,15 @@
 /**
- * UI additions to adapt bootstrap for registry UI. Dave Reynolds, 2013
+ * Style adjustments specific to current registry UI pages.
+ * The general registry L&F styling is based on bootstrap 3
+ * with extensions and modifications created using the sass
+ * scripts in the ui-customize arae. 
  */
 
 body {
         min-height: 600px;
 }
 
-/* Tweaks to ea-common style for registry L&F */
-
-.navbar-brand {
-    font-size: 150% !important;
-    margin-top: 10px;
-    height: 40px;
-}
-
-.navbar-nav {
-    margin-top: 15px;
-}
-
-.navbar-nav .dropdown-menu li a {
-    background-color: white !important;
-    color: black;
-    border-bottom: none !important;
-    margin-left: 10px;
-    margin-bottom: 3px;
-}
-
-.navbar-nav .dropdown-menu li a:hover {
-    background-color: gray !important;
-}
-
-.navbar-nav li.active a {
-    border-bottom: 3px solid #005ea5;
-}
-
-footer {
-    margin-top: 15px;
-    border-top: 15px solid #005ea5;
-}
-
-.o-top-colour-bar {
-    background-color: #005ea5;
-}
-
-/* Registry L&F */
+/* General table tweaks - possible should move to ui-customize */
 .table {
    margin-bottom: 0em;
 }
@@ -52,39 +18,16 @@ table tr td table {
    margin-bottom: 0em;
 }
 
-.space-above {
-   margin-top: 1em;
+td.align-right {
+    text-align: right;
 }
 
-.space-below {
-   margin-bottom: 1em;
+/* Actions tab on metadata pane */
+.action-section {
+    margin-bottom: 10px;
 }
 
-.nav-text {
-    color: white;
-}
-
-.result-blob {
-    background-color: #f5f5f5;
-    margin-bottom: 20px;
-    /* margin-right: 5px; */
-}
-
-.blob {
-}
-
-.blob-inner {
-    padding: 5px;
-}
-
-.pale-blue {
-    background-color:  #d9f0f9;
-}
-
-.pale-orange {
-    background-color:  #f9dfc2;
-}
-
+/* Table of download formats */
 .formats {
     border: 2px solid lightgrey;
     margin-bottom: 10px;
@@ -102,26 +45,18 @@ table tr td table {
     vertical-align: middle;
 }
 
-.test-blob {
-    background-color: grey;
-    text-align: center;
- }
-
- .test-border {
-    border: 2px solid lightgrey;
- }
-
- .tab-content {
+.tab-content {
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     padding:  5px;
  }
 
-.nav-compact {
-    margin-bottom: 0px;
+#metadata-content {
+    border-top: 1px solid lightgrey;
 }
 
+/* Sizes for some specific modals */
 #registration-dialog {
     width: 700px;
     top: 5%;
@@ -133,65 +68,7 @@ table tr td table {
    min-width: 600px;
 }
 
-.modal.update {
-    width: 800px;
-    top: 5%;
-    left: 30%;
-}
-
-.modal-body.update {
-    max-height: 650px;
-}
-
-/* Modal pages */
-.modal-page-panel {
-    z-index: 1050;
-    background-color: white;
-    position: relative;
-}
-
-.modal-page-head {
-    padding: 5px 10px 5px 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.modal-page-body {
-    padding: 5px 10px 5px 10px;
-}
-
-.modal-page-footer {
-    padding: 5px 10px 5px 10px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    box-shadow: inset 0 1px 0 white;
-    -webkit-box-shadow: inset 0 1px 0 white;
-    -moz-box-shadow: inset 0 1px 0 white;
-    min-height: 30px;
-}
-
-td.align-right {
-    text-align: right;
-}
-
-#metadata-content {
-    border-top: 1px solid lightgrey;
-}
 
 .ui-edit-main {
     min-width: 350px;
-}
-
-/* Hierarchical list support */
-.hlist-entry {
-    min-width: 600px;
-    border: 1px solid lightgrey;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 5px;
-}
-
-.hlist-child-box {
-    padding-left: 40px;
 }

@@ -1,5 +1,5 @@
 #set($nav="admin")
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
     #if($subject.isAuthenticated())
         <h2>Admin action completed</h2>
@@ -9,4 +9,4 @@
         <h3>Sorry you must be logged in to access this page</h3>
     #end
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")

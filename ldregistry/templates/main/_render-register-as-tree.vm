@@ -26,4 +26,4 @@
 
 #set($query="SELECT DISTINCT ?item WHERE {<$register.uRI> ^reg:register ?item . ?item version:currentVersion/reg:definition/reg:entity ?entity . $queryPart}")
 
-#parse("hlist-render.vm")
+#parse( "main/_hlist-render.vm" )

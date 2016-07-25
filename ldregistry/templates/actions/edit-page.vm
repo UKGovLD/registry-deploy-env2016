@@ -4,7 +4,7 @@
 ##    $isRegister  signals that the target is a register
 ##    $target = URL to be edited
 
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
   <div class="row">
     <div class="col-md-offset-1 col-md-10 modal-page-panel">
@@ -21,9 +21,9 @@
             #set($uri=$lib.reg.pathFor($target))
             #set($response=$registry.perform("Read","$uri?_view=with_metadata#if($isRegister)&non-member-properties#end", $requestor))
             #if($response.status == 404)
-              #parse("not-found.vm")
+              #parse("main/_not-found.vm")
             #elseif($response.status >= 500)
-              #parse("internal-error.vm")
+              #parse("main/_internal-error.vm")
             #else
               #set($model=$response.entity)
               $model.setLanguage($language)
@@ -36,7 +36,7 @@
 
                 <p>The values will be converted to Turtle syntax (anything that looks like a URL will be wrapped in  &lt;...&gt;,
                 anything that looks like a general string will be quoted. To force a particular interpretation (e.g. to enter a string
-                and looks like a number) then use explicit Turtle syntax.</p>
+                that looks like a number) then use explicit Turtle syntax.</p>
 
                 <div class="tabbable">
 
@@ -103,4 +103,4 @@
     <h3>Edit: $target</h3>
 </div>
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")

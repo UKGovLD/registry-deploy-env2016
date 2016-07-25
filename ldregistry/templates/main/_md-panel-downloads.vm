@@ -1,3 +1,5 @@
+## Render the table of download options for an item
+
           #set($href = "#if($versionNumber)#linkhref($item):$versionNumber#else#linkhref($entity)#end")
           <h3 class="text-center">Download formats available</h3>
           <table class="table table-condensed">

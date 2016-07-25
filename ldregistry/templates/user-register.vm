@@ -2,7 +2,7 @@
 ##    $return the page to return to (or is that just referrer)
 
 #set($nav="admin")
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
   <div class="row">
     <div class="col-md-12 modal-page-panel">
@@ -14,7 +14,7 @@
 
         <div class="row space-above">
         
-          <div class="col-md-offset-2 col-md-5 blob pale-blue">
+          <div class="col-md-offset-2 col-md-5 blob-password">
             <div class="blob-inner">
               <h2>User details</h2>
               #if( ! $registry.configExtensions.suppressPasswordLogin)
@@ -78,5 +78,5 @@
   <div class="modal-backdrop in"></div>
 
 #set( $extraJS = "jquery.validate.min.js,validate-password.js" )
-#parse("footer.vm")
+#parse("structure/_footer.vm")
 

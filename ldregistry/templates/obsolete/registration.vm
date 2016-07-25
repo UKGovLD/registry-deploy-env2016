@@ -3,7 +3,7 @@
 ##    $return the page to return to (or is that just referrer)
 ##    $register the relative URI of the target register
 
-#parse("preamble.vm")
+#parse("structure/_preamble.vm")
 
   <div class="row">
     <div class="col-md-10 col-md-offset-1 modal-page-panel">
@@ -70,13 +70,13 @@
           <div class="tab-pane" id="register">
             <div class="ajax-error"></div>
             #set($spec=$lib.reg.getResource("/system/form-templates/register"))
-            #parse("form-for.vm")
+            #parse( "actions/_form-for.vm" )
           </div>
 
           <div class="tab-pane" id="forward">
             <div class="ajax-error"></div>
             #set($spec=$lib.reg.getResource("/system/form-templates/forward"))
-            #parse("form-for.vm")
+            #parse( "actions/_form-for.vm" )
           </div>
 
 
@@ -96,7 +96,7 @@
 
                   <div class="hidden form-choice" id="form-$label">
                     #set($spec=$lib.reg.getResource($form.entityURI))
-                    #parse("form-for.vm")
+                    #parse( "actions/_form-for.vm" )
                     <div class="ajax-error"></div>
                   </div>
 
@@ -106,7 +106,7 @@
 
           <div class="tab-pane" id="item">
             #set($spec=$lib.reg.getResource("/system/form-templates/concept"))
-            #parse("form-for.vm")
+            #parse( "actions/_form-for.vm" )
             <div class="ajax-error"></div>
           </div>
 
@@ -146,5 +146,5 @@
 
    </script>
 
-#parse("footer.vm")
+#parse("structure/_footer.vm")
 

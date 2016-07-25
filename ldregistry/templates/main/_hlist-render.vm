@@ -8,7 +8,7 @@
   #if( !$memitem.hasResourceValue("reg:status", "reg:statusReserved") )
     <div class="hlist-entry">
         #if(!$member.connectedNodes($narrow).isEmpty())
-        <a href="#" data-state="new" data-target="$uiroot/hlist?concept=$lib.pathEncode($member.uRI)&narrow=$lib.pathEncode($narrow)" class="hlist-button"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        <a href="#" data-state="new" data-target="$uiroot/main/_hlist-render-child?concept=$lib.pathEncode($member.uRI)&narrow=$lib.pathEncode($narrow)" class="hlist-button"><span class="glyphicon glyphicon-plus-sign"></span></a>
         #end
         <a href="#linkhref($memitem)" title="$memitem.uRI">$member.name</a>
         #tdescription($member,"",70)
