@@ -39,7 +39,7 @@
           #metadatarow("category", $entity.listPropertyValues("reg:category"))
           #metadatarow("owned by", $entity.listPropertyValues("reg:owner"))
           #metadatarow("contains", $entity.listPropertyValues("http://environment.data.gov.uk/registry/structure/ui/entityType"))
-          #metadatarow("license", $entity.listPropertyValues("dct:license"))
+          #metadatarow("licence", $entity.listPropertyValues("dct:license"))
           #smetadatarow("rights attribution", $entity.connectedNodes("dct:rights/odrs:attributionText"))
           #metadatarow("changed on", $item.listPropertyValues("dct:modified"))
           #nmetadatarow("submitted by", $item.listPropertyValues("reg:submitter"))

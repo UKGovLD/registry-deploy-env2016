@@ -55,5 +55,21 @@
             ui:tooltip "Property used to find root entries in tree view"@en;
             ui:property ui:hierarchyRootProperty;
             ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "category"; skos:notation "category";
+            ui:tooltip "Category tag for the resister to aid discovery"@en;
+            ui:property reg:category;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "owner"; skos:notation "owner";
+            ui:tooltip "Organization that owns the register"@en;
+            ui:property reg:owner;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "entity type"; skos:notation "entity";
+            ui:tooltip "The kind of thing held in the register"@en;
+            ui:property <http://environment.data.gov.uk/registry/structure/ui/entityType>;
+            ui:fieldType ui:anyURIField]
+      [a ui:FormField; rdfs:label "licence"; skos:notation "licence";
+            ui:tooltip "Licence that applies to the register contents"@en;
+            ui:property dct:licence;
+            ui:fieldType ui:anyURIField]
     );
     .
