@@ -90,7 +90,11 @@
         #end
 ##        #linkfor($v)
       #elseif ($lib.isDatetime($v))
-        $lib.printDatetime($v)
+        #if( $v.datatype == "xsd:date" )
+          $lib.printDatetime("d MMM yyyy", $v)
+        #else
+          $lib.printDatetime($v)
+        #end
       #else
         $lib.escapeHtml($v.lexicalForm, 1000)
       #end

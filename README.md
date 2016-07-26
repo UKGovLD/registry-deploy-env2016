@@ -21,3 +21,10 @@ A substantial restructuring of the UI templates and assets is underway. The key 
    * Updated default look and feel to be more consistent with, but not infringe, gov.uk styling. This is created using sass to customize boostrap 3.3.6. The new subdirectory `ui-customize` contains the sass scripts and instructions for regenerating the styling.
 
    * Restructure the UI templates to split into smaller, more maintanable parts with more consistent naming convention. 
+
+   * Simplify the default UI
+      * splitting the "admin" tab into separate "actions" and "adminstrators"
+      * flattening the "registration" action
+      * move some actions to "advanced" menu
+      * improved "create register" dialog
+    These are aimed a supporting common opertions where a register might be manually created but most content is upload from CSV (or maybe jsonld or ttl files) with "patch" mode being a good universal default. Clarifies the differences between patch, upload and batch-upload by hiding beind verbose radio buttons on the "Register new of changed entries" action dialog
