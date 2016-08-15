@@ -5,7 +5,7 @@
     #set($state="")
   #end
 
-  #set($fr=$facetCat.query($state))
+  #set($fr=$registry.facetService.query($state))
   <div class="row">
 
     <div class="col-md-3">
