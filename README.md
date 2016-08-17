@@ -6,6 +6,8 @@ Should set upstream to enable changes to be pulled in:
 
     git remote add upstream git@github.com:UKGovLD/registry-config-base.git
 
+N.B. Requires registry-core 1.2.0 or higher
+
 ## Installation
 
 While this includes the `install` and `scripts` areas they are not used, this is deployed using a separate chef cookbook.
