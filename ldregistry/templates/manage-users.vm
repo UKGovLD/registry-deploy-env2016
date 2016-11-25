@@ -64,6 +64,15 @@
                         #if( $user.openid != "http://localhost/anon" )
                         <a class="btn btn-sm btn-default" role="button" href="$root/ui/reset-password?userid=$user.openid&return=$absoluteRoot/$uri">Change password</a>
                         #end
+                        #if( $user.openid == "replication" )
+                            <form class="form-inline" action="$root/system/security/grant" method="post">
+                                <input type="hidden" name="grant" value="Replication" >
+                                <input type="hidden" name="user" value="$user.openid" >
+                                <input type="hidden" name="path" value="/" >
+                                <input type="hidden" name="return" value="$absoluteRoot/$uri" >
+                                <input class="btn btn-sm btn-default" type="submit" value="Grant replication" >  
+                            </form>
+                        #end
                     </td>
                     <td>
                         #if( $user.openid != "http://localhost/anon" && (!$isAdmin || $admins.size() > 1) )

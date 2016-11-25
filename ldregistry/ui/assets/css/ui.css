@@ -72,3 +72,7 @@ td.align-right {
 .ui-edit-main {
     min-width: 350px;
 }
+
+#uriField {
+    width: 100%;
+}

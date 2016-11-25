@@ -32,6 +32,7 @@
                <li><a href="$root/$uri?showStatus=accepted">Show all entries</a></li>
             #end
         #end
+       <li><a href="$uiroot/actions/check-page">Check URI</a></li>
        <li><a href="$uiroot/sparql-form">Sparql</a></li>
 
         #if( $subject.isAuthenticated() )

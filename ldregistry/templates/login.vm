@@ -12,6 +12,14 @@
   #end
 #end
 
+#if( $registry.configExtensions.loginMaster )
+    #set( $lroot = $registry.configExtensions.loginMaster )
+    #set( $base = "${request.scheme}://${request.serverName}${root}" )
+    #set( $return = $return.replace($base, $registry.configExtensions.loginMaster ) )
+#else
+    #set( $lroot = $root )
+#end
+
 <div class="modal-page container">
   <div class="row">
     <div class="col-md-12 modal-page-panel">
@@ -33,7 +41,7 @@
               </div>
               #if(!$registry.configExtensions.suppressPasswordLogin)
               <div class="row">
-                <form class="form-horizontal" role="form"  action="$root/system/security/pwlogin" method="post">
+                <form class="form-horizontal" role="form"  action="$lroot/system/security/pwlogin" method="post">
                   <div class="form-group">
                     <label for="userid1" class="col-md-offset-1 col-md-2 control-label">Username</label>
                     <div class="col-md-8">
@@ -58,7 +66,7 @@
               #if( ! $registry.configExtensions.passwordLoginOnly )
               <div class="row space-above">
                 <div class="col-md-12">
-                  <form class="form-horizontal" action="$root/system/security/loginoa" method="post">
+                  <form class="form-horizontal" action="$lroot/system/security/loginoa" method="post">
                     #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or login via a registered Google G+ account</p>
                     #end
@@ -80,7 +88,7 @@
               <h2>Register as a new user</h2>
               #if( ! $registry.configExtensions.suppressPasswordLogin)
               <div class="row">
-                <form class="form-horizontal" role="form"  action="$root/system/security/pwregister" method="post">
+                <form class="form-horizontal" role="form"  action="$lroot/system/security/pwregister" method="post">
                   <div class="form-group">
                     <label for="userid2" class="col-md-offset-1 col-md-2 control-label">Username</label>
                     <div class="col-md-8">
@@ -110,7 +118,7 @@
               #end
               <div class="row space-above">
                 <div class="col-md-12">
-                  <form class="form-horizontal" action="$root/system/security/registeroa" method="post">
+                  <form class="form-horizontal" action="$lroot/system/security/registeroa" method="post">
                     #if(!$registry.configExtensions.suppressPasswordLogin)
                     <p>Or authorize via a Google G+ account</p>
                     #end
