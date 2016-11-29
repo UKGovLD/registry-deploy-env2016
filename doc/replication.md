@@ -17,3 +17,11 @@ On the master this should define:
 
 On the slave omit this file or set SLAVE to empty string to stop the slave trying to replicate.
 
+## Issues
+
+The replication script currently just plays directly to the slave.
+
+If the slave is down then the replication will fail with no catch up option.
+
+Ideally the script would register in a broker that will do a safe replay if needed.
+C.f. use of s3 and dms-util for update distribution in DMS.
