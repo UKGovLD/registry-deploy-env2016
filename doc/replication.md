@@ -9,7 +9,7 @@ The URL to redirect logins to is current set to:
 
 The proxy should direct this to correct master server.
 
-That script is in turn configured by /opt/ldregistry/replication-conf.sh
+That script is in turn configured by /var/opt/ldregistry/replication-conf.sh
 On the master this should define:
 
      RUPASSWORD  - password for user "replication" on the slave
