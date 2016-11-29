@@ -14,7 +14,7 @@ if [[ -z $SLAVE ]]; then
     exit 0
 fi
 
-if ! curl -s --basic --user:replication:$RUPASSWORD --data-binary="@$log" $SLAVE/system/replay ; then
+if ! curl -s --basic --user replication:$RUPASSWORD --data-binary "@$log" $SLAVE/system/replay ; then
     echo "Server access failed with curl status code $?"
     exit 1
 fi
