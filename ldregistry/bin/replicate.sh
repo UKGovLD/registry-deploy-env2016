@@ -7,7 +7,7 @@
 [[ $# = 1 ]] || { echo "No log file given, aborting" 1>&2 ; exit 1 ; }
 readonly log="$1"
 
-. /opt/ldregistry/replication-conf.sh
+. /opt/ldregistry/conf/replication-conf.sh
 
 if [[ -z $SLAVE ]]; then
     echo "No slave configured"
