@@ -76,3 +76,33 @@ td.align-right {
 #uriField {
     width: 100%;
 }
+
+.toc {
+    margin-top: 2em;
+}
+
+.toc ul {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+.toc ul ul {
+    margin-left: 1em;
+}
+
+.toc ul li {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.indented {
+    margin-left: 1em;
+    margin-bottom: 10.5px;
+}
+
+.try-it {
+  margin-left: 2em;
+}
