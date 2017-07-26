@@ -126,6 +126,7 @@ $(function() {
             parent.next("div.hlist-child-box").show();
             setHlistState(button, "open");
         }
+        return false;
     };
 
     var setHlistState = function(button, state) {
