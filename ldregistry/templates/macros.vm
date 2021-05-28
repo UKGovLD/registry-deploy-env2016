@@ -48,18 +48,7 @@
 #end
 
 ## Determine the href value to use in a link to the given resource, reference URIs go external
-#macro(linkhref $res)
-  #if($res.uRI.startsWith($registry.baseURI))
-    ${root}$res.uRI.substring($registry.baseURI.length())
-  #else
-    #set($href = $res.uRI)
-    #if($href.startsWith("javascript:"))
-      #[[#]]#
-    #else
-      $href
-    #end
-  #end
-#end
+#macro(linkhref $res)#if($res.uRI.startsWith($registry.baseURI))${root}$res.uRI.substring($registry.baseURI.length())#else#set($href = $res.uRI)#if($href.startsWith("javascript:"))#[[#]]##else$href#end#end#end
 
 ## Determine the href value to use in a link to the given resource, reference URIs go internal
 #macro(linkhrefInt $res)#if($res.uRI.startsWith($registry.baseURI))${root}$res.uRI.substring($registry.baseURI.length())#else${root}/?entity=$lib.pathEncode($res.getURI())#end#end
