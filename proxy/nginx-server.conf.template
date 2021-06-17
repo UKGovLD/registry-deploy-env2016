@@ -1,0 +1,36 @@
+server {
+    listen   8080; ## listen for ipv4; this line is default and implied
+    server_name localhost environment-registry.epimorphics.net environment.data.gov.uk;
+
+    root /usr/share/nginx/www;
+    index index.html index.htm;
+
+    client_max_body_size 4m;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+       root /usr/share/nginx/www;
+    }
+
+    proxy_set_header        X-Real-IP $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    # Load dynamically generated configs from registry
+    include /etc/nginx/conf.d/registry/proxy-*.conf ;
+    
+    # Redirect to real root
+    location = /registry { return 302 /registry/ ; }
+
+    # Proxy all other requests through to the tomcat instance
+    location / {
+      proxy_set_header      Host $http_host;
+      proxy_pass            ${REGISTRY_SERVICE};
+      proxy_cache            STATIC;
+      proxy_cache_valid      10m;
+      proxy_read_timeout 300;
+      proxy_send_timeout 300;
+    }
+
+}
