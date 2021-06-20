@@ -10,7 +10,16 @@ RUN curl -s https://s3-eu-west-1.amazonaws.com/ukgovld/release/com/github/ukgovl
   && mkdir -p /var/log/ldregistry \
   && mkdir -p /var/log/ldproxy \
   && ln -s /usr/bin/bash /usr/bin/sudo
+
 COPY ldregistry /opt/ldregistry
+
+# Patch logging
+COPY log4j.properties /tmp/build/WEB-INF/classes/log4j.properties
+RUN cd /tmp/build \
+  && mkdir -p WEB-INF/lib \
+  && curl -s https://repo1.maven.org/maven2/net/logstash/log4j/jsonevent-layout/1.7/jsonevent-layout-1.7.jar > WEB-INF/lib/jsonevent-layout-1.7.jar \
+  && curl -s https://repo1.maven.org/maven2/net/minidev/json-smart/1.1.1/json-smart-1.1.1.jar > WEB-INF/lib/json-smart-1.1.1.jar \
+  && jar -uf /usr/local/tomcat/webapps/registry.war WEB-INF
 
 RUN adduser -u 1000 app \
   && chown -R app /opt/ldregistry /usr/local/tomcat /var/log/ldregistry
