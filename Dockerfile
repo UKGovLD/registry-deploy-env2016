@@ -1,7 +1,6 @@
-# Using tomcat7 for now but should be compatible with tomcat 8
-FROM tomcat:7.0-jdk8-corretto
+FROM tomcat:8.5.73-jdk8-corretto
 
-ARG REGISTRY_VERSION=2.3.1
+ARG REGISTRY_VERSION=2.3.3
 
 RUN yum -y install shadow-utils
 
