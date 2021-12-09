@@ -1,7 +1,8 @@
 #set($root=$registry.rootPath)
 
-#set($response=$registry.perform("Read","$uri?_view=version_list", $requestor))
-#set($target="$registry.baseURI/$uri")
+#set($p=$param.replace('"',''))
+#set($response=$registry.perform("Read","$p?_view=version_list", $requestor))
+#set($target="$registry.baseURI/$p")
 
 #if($response.status == 404)
   #parse("main/_not-found.vm")

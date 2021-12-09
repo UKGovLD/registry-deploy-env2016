@@ -56,7 +56,7 @@ $(function() {
         var uiroot = tab.attr('data-uiroot');
         if (action) {
           //var url = '$uiroot/' + action +'?uri=$lib.pathEncode($uri)&requestor=$requestor';
-          var url = uiroot + '/' + action + '?uri=' + uri;
+          var url = uiroot + '/' + action + '?param=' + uri;
           var args = tab.attr('data-args');
           if (args) {
              url = url + "&" + args;
