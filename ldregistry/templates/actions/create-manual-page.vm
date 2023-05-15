@@ -9,7 +9,7 @@
     <div class="col-md-10 col-md-offset-1 modal-page-panel">
     
         <div class="modal-page-head">
-            <h3>Create a new entry in in $register</h3>
+            <h3>Create a new entry in in $lib.reg.xssCleanHTML($register)</h3>
         </div>
 
         <div class="modal-page-body">

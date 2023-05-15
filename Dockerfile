@@ -1,6 +1,6 @@
 FROM tomcat:7.0.109-jdk8-corretto
 
-ARG REGISTRY_VERSION=2.3.6
+ARG REGISTRY_VERSION=2.3.15
 
 RUN yum update -y \
   && yum install -y shadow-utils \

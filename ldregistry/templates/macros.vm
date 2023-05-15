@@ -48,10 +48,10 @@
 #end
 
 ## Determine the href value to use in a link to the given resource, reference URIs go external
-#macro(linkhref $res)#if($res.uRI.startsWith($registry.baseURI))$root$lib.reg.xssCleanURI($res.uRI.substring($registry.baseURI.length()))#else#set($href = $lib.reg.xssCleanURI($res.uRI))#if($href.startsWith("javascript:"))#[[#]]##else$href#end#end#end
+#macro(linkhref $res)#if($res.uRI.startsWith($registry.baseURI))$root$lib.reg.xssCleanHTMLAtribute($res.uRI.substring($registry.baseURI.length()))#else#set($href = $lib.reg.xssCleanHTMLAtribute($res.uRI))#if($href.startsWith("javascript:"))#[[#]]##else$href#end#end#end
 
 ## Determine the href value to use in a link to the given resource, reference URIs go internal
-#macro(linkhrefInt $res)#if($res.uRI.startsWith($registry.baseURI))${root}$res.uRI.substring($registry.baseURI.length())#else${root}/?entity=$lib.pathEncode($res.getURI())#end#end
+#macro(linkhrefInt $res)#if($res.uRI.startsWith($registry.baseURI))${root}$res.uRI.substring($registry.baseURI.length())#else$res.uRI#end#end
 
 ## Inject a link to the given resource
 ###macro(linkfor $res)
