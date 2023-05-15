@@ -90,8 +90,8 @@
         </div>
 
       <div class="modal-page-footer">
-        <button class="btn btn-primary space-above edit-table-save" data-isitem="$isItem" data-return="$return">Save changes</button>
-        <a href="$return" class="btn pull-right">Close</a>
+        <button class="btn btn-primary space-above edit-table-save" data-isitem="$isItem" data-return="$lib.reg.xssCleanHTMLAtribute($return)">Save changes</button>
+        <a href="$lib.reg.xssCleanURI($return)" class="btn pull-right">Close</a>
       </div>
 
     </div>
@@ -100,7 +100,7 @@
 <div class="modal-backdrop in"></div>
 
 <div class="modal-page-head">
-    <h3>Edit: $target</h3>
+    <h3>Edit: $lib.reg.xssCleanHTML($target)</h3>
 </div>
 
 #parse("structure/_footer.vm")
