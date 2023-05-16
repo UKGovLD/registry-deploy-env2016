@@ -5,6 +5,10 @@
 
 #parse("structure/_preamble.vm")
 
+#if(! $subject.isAuthenticated())
+  <h1>Not authenticated</h1>
+#else
+
 #parse( "actions/_configure-create-register.vm" )
 
 <div class="row">
@@ -130,5 +134,7 @@ $(function() {
     });
 });
 </script>
+
+#end ## auth check
 
 #parse("structure/_footer.vm")

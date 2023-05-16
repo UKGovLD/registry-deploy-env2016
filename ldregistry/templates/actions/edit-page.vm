@@ -6,6 +6,10 @@
 
 #parse("structure/_preamble.vm")
 
+#if(! $subject.isAuthenticated())
+  <h1>Not authenticated</h1>
+#else
+
   <div class="row">
     <div class="col-md-offset-1 col-md-10 modal-page-panel">
 
@@ -102,5 +106,7 @@
 <div class="modal-page-head">
     <h3>Edit: $lib.reg.xssCleanHTML($target)</h3>
 </div>
+
+#end ## auth check
 
 #parse("structure/_footer.vm")

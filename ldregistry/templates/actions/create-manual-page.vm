@@ -5,6 +5,10 @@
 
 #parse("structure/_preamble.vm")
 
+#if(! $subject.isAuthenticated())
+  <h1>Not authenticated</h1>
+#else
+
 <div class="row">
     <div class="col-md-10 col-md-offset-1 modal-page-panel">
     
@@ -37,7 +41,7 @@
         </div>
 
         <div class="modal-page-footer">
-            <a href="$return" class="btn pull-right">Close</a>
+            <a href="$lib.reg.xssCleanURI($return)" class="btn pull-right">Close</a>
         </div>
       
     </div>
@@ -64,5 +68,7 @@
     });
 
    </script>
-   
+
+#end ## auth check
+
 #parse("structure/_footer.vm")

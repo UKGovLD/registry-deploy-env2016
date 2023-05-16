@@ -5,6 +5,10 @@
 
 #parse("structure/_preamble.vm")
 
+#if(! $subject.isAuthenticated())
+  <h1>Not authenticated</h1>
+#else
+
 <div class="row">
     <div class="col-md-10 col-md-offset-1 modal-page-panel">
     
@@ -99,5 +103,7 @@ $(function() {
     });
 });
 </script>
+
+#end ## auth check
 
 #parse("structure/_footer.vm")
