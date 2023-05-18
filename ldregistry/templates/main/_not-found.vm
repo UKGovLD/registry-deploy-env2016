@@ -1,6 +1,6 @@
   <div class="jumbotron">
     <h1>Not found (404)</h1>
     <p>
-      Sorry but the URI <a href="$target">$lib.escapeHtml($target)</a> was not found on this site.
+      Sorry but the URI was not found on this site.
     </p>
   </div>

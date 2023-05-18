@@ -5,7 +5,7 @@
 ##   $entity  - no longer supported
 ##   $_browse - flag (query parameter) to indicate user has selected "browse"  to override landing page, optional
 
-#set( $isLandingPage = $uri.isEmpty() && !$entity && !${_browse} )
+#set( $isLandingPage = $uri.isEmpty() && !${_browse} )
 
 #set( $nav = "#if( $isLandingPage )landing#{else}browse#end" )
 
