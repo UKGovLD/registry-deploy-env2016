@@ -3,17 +3,9 @@
 #    REGISTRY_VERSION (default 2.3.15)
 
 REGISTRY_VERSION?=2.3.15
-REPO?=853478862498.dkr.ecr.eu-west-1.amazonaws.com
 IMAGE?=epimorphics/env-registry
-
-.PHONY: push
-push: build just-push
 
 .PHONY: build
 build:
 	docker build --build-arg REGISTRY_VERSION=$(REGISTRY_VERSION) -t "$(IMAGE):latest" .
 	docker tag "$(IMAGE):latest" "$(REPO)/$(IMAGE):$(REGISTRY_VERSION)"
-
-.PHONY: just-push
-just-push: 
-	docker push "$(REPO)/$(IMAGE):$(REGISTRY_VERSION)"
