@@ -1,0 +1,5 @@
+<Context reloadable="false" path="/" aliases="/ui=/opt/ldregistry/ui">
+  <Resources>
+    <PreResources base="/opt/ldregistry/ui" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/ui" />
+  </Resources>
+</Context>

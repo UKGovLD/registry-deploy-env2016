@@ -1,0 +1,24 @@
+{
+  "ts": {
+    "$resolver": "timestamp",
+    "pattern": {
+      "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+      "timeZone": "UTC"
+    }
+  },
+   "level": {
+    "$resolver": "level",
+    "field": "name"
+  },
+  "message": {
+    "$resolver": "message",
+    "stringified": true
+  },
+  "stacktrace": {
+    "$resolver": "exception",
+    "field": "stackTrace",
+    "stackTrace": {
+      "stringified": true
+    }
+  }  
+}
